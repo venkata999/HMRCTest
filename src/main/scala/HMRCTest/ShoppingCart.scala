@@ -9,17 +9,22 @@ object ShoppingCart {
   val listOfItems = ShopppingCartUtil.listofitems
 
   def main ( args: Array[String]): Unit = {
+
     checkOutWithoutOffers()
     checkOutWithOffers()
   }
 
+  /** Step 1: Shopping cart **/
   def checkOutWithoutOffers() = {
+
+    /* Without offers */
     val listOfItemObjs = listOfItems.map{itm=> ShopItem.unapply(itm)}.flatten
     val total = listOfItemObjs.map{i=>i.cost}.sum
     println(s"** Total (Without Offer): ${decimalFormat(total)}")
     total
   }
 
+  /** Step 2: Simple offers **/
   def checkOutWithOffers() ={
 
     /* Without offers */
@@ -47,6 +52,7 @@ object ShoppingCart {
     (totalItems / 3) * unitPrice
 
   def decimalFormat(value: Int) = {
+
     val dblVal: Double = value / 100.0
     f"£$dblVal%2.2f"
   }

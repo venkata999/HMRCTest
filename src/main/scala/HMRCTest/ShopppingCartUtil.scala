@@ -7,7 +7,7 @@ import java.util.Properties
   */
 
 object ShopppingCartUtil {
-
+  /** get item values from property file **/
   val (apple:Int, orange:Int, listofitems:List[String]) = {
     try {
       val props = new Properties()

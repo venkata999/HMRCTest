@@ -33,8 +33,22 @@ class ShoppingCartTest extends WordSpecLike with Matchers {
     "generate the correct Total Items value with Offer " in {
       ShoppingCart.decimalFormat(ShoppingCart.checkOutWithOffers()) shouldBe "£1.95"
     }
+  }
+
+  "Shoppping Cart" should {
+    val a = Apple
+    val o =  Orange
+    val ls = List (a,a,a,o,o,a,o,o,a)
+
+    "generate correct value for No of items for apples" in {
+      ShoppingCart.getTotalItems("apple", ls) shouldBe 5
+    }
+
+    "generate correct value for No of items for oranges" in {
+      ShoppingCart.getTotalItems("orange", ls) shouldBe 4
+    }
 
   }
 
-}
+  }
 
